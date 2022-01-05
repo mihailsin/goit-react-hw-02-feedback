@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Section from '../Section/Section';
-import FeedbackOptions from '../Controls/FeedbackOptions';
-import Stats from '../Stats/Stats';
-import Notification from '../Stats/Notification';
+import Section from '../Section';
+import FeedbackOptions from '../Controls';
+import Stats from '../Stats';
+import Notification from '../Notification';
 class Feedback extends React.Component {
   static defaultProps = {
     initialValue: 0,
