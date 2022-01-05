@@ -1,22 +1,23 @@
+import { List, Item, Button } from './FeedbackOptions.styled';
 const FeedbackOptions = ({ onPositive, onNeutral, onNegative }) => {
   return (
-    <ul>
-      <li>
-        <button type="button" onClick={onPositive}>
+    <List>
+      <Item>
+        <Button type="button" onClick={onPositive}>
           Good
-        </button>
-      </li>
-      <li>
-        <button type="button" onClick={onNeutral}>
+        </Button>
+      </Item>
+      <Item>
+        <Button type="button" onClick={onNeutral}>
           Neutral
-        </button>
-      </li>
-      <li>
-        <button type="button" onClick={onNegative}>
+        </Button>
+      </Item>
+      <Item>
+        <Button type="button" onClick={onNegative}>
           Bad
-        </button>
-      </li>
-    </ul>
+        </Button>
+      </Item>
+    </List>
   );
 };
 export default FeedbackOptions;

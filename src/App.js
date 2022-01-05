@@ -5,6 +5,7 @@ import Notification from './components/Notification';
 import Section from './components/Section';
 import Stats from './components/Stats';
 
+import { Div } from './App.styled';
 class App extends React.Component {
   static defaultProps = {
     initialValue: 0,
@@ -43,7 +44,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <Div>
         <Section title="Please leave feedback">
           <FeedbackOptions
             onPositive={this.handlePositiveFeedback}
@@ -64,7 +65,7 @@ class App extends React.Component {
             <Notification message="There is no feedback"></Notification>
           )}
         </Section>
-      </div>
+      </Div>
     );
   }
 }
