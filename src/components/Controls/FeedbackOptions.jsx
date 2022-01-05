@@ -1,4 +1,4 @@
-const Controls = ({ onPositive, onNeutral, onNegative }) => {
+const FeedbackOptions = ({ onPositive, onNeutral, onNegative }) => {
   return (
     <div>
       <h2>Please leave feedback</h2>
@@ -22,4 +22,4 @@ const Controls = ({ onPositive, onNeutral, onNegative }) => {
     </div>
   );
 };
-export default Controls;
+export default FeedbackOptions;

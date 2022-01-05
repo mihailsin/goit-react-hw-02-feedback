@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Controls from './Controls';
-import Stats from './Stats';
+import FeedbackOptions from '../Controls/FeedbackOptions';
+import Stats from '../Stats/Stats';
 class Feedback extends React.Component {
   static defaultProps = {
     initialValue: 0,
@@ -31,7 +31,7 @@ class Feedback extends React.Component {
   render() {
     return (
       <div>
-        <Controls
+        <FeedbackOptions
           onPositive={this.handlePositiveFeedback}
           onNeutral={this.handleNeutralFeedback}
           onNegative={this.handleNegativeFeedback}
