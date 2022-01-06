@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.section`
+const Wrapper = styled.section`
   margin: 0 auto;
 
   @media screen and (min-width: 320px) {
@@ -20,6 +20,8 @@ export const Wrapper = styled.section`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  padding: 100px;
+  padding-top: 50px;
 `;
-export const Header = styled.h2``;
+const Header = styled.h2``;
+
+export { Wrapper, Header };

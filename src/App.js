@@ -5,7 +5,7 @@ import Notification from './components/Notification';
 import Section from './components/Section';
 import Stats from './components/Stats';
 
-import { Div } from './App.styled';
+import Div from './App.styled';
 class App extends React.Component {
   static defaultProps = {
     initialValue: 0,
@@ -17,21 +17,28 @@ class App extends React.Component {
     bad: this.props.initialValue,
   };
 
-  handlePositiveFeedback = () => {
-    this.setState(prevState => ({
-      good: prevState.good + 1,
-    }));
+  handleFeedback = e => {
+    switch (e.target.textContent) {
+      case 'Good':
+        this.setState(prevState => ({
+          good: prevState.good + 1,
+        }));
+        break;
+      case 'Neutral':
+        this.setState(prevState => ({
+          neutral: prevState.neutral + 1,
+        }));
+        break;
+      case 'Bad':
+        this.setState(prevState => ({
+          bad: prevState.bad + 1,
+        }));
+        break;
+      default:
+        return;
+    }
   };
-  handleNeutralFeedback = () => {
-    this.setState(prevState => ({
-      neutral: prevState.neutral + 1,
-    }));
-  };
-  handleNegativeFeedback = () => {
-    this.setState(prevState => ({
-      bad: prevState.bad + 1,
-    }));
-  };
+
   countTotalFeedback() {
     return this.state.good + this.state.neutral + this.state.bad;
   }
@@ -46,11 +53,7 @@ class App extends React.Component {
     return (
       <Div>
         <Section title="Please leave feedback">
-          <FeedbackOptions
-            onPositive={this.handlePositiveFeedback}
-            onNeutral={this.handleNeutralFeedback}
-            onNegative={this.handleNegativeFeedback}
-          />
+          <FeedbackOptions onFeedback={this.handleFeedback} />
         </Section>
         <Section title="Statistics">
           {this.countTotalFeedback() > 0 ? (

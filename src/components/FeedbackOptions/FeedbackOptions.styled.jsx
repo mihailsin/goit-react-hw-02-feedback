@@ -1,20 +1,21 @@
 import styled from 'styled-components';
-export const List = styled.ul`
+const List = styled.ul`
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
+  justify-content: space-evenly;
 
+  width: 100%;
   padding: 0;
 `;
 
-export const Item = styled.li`
+const Item = styled.li`
   list-style: none;
-  &:not(:first-child) {
+  /* &:not(:first-child) {
     margin-left: 20px;
-  }
+  } */
 `;
 
-export const Button = styled.button`
+const Button = styled.button`
   color: #ffffff;
   padding: 15px;
   border: 1px solid #000000;
@@ -43,3 +44,5 @@ export const Button = styled.button`
     box-shadow: inset 5px 5px 5px -2px #ffffff;
   }
 `;
+
+export { List, Item, Button };
