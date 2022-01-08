@@ -18,49 +18,40 @@ class App extends React.Component {
   };
 
   handleFeedback = e => {
-    switch (e.target.textContent) {
-      case 'Good':
-        this.setState(prevState => ({
-          good: prevState.good + 1,
-        }));
-        break;
-      case 'Neutral':
-        this.setState(prevState => ({
-          neutral: prevState.neutral + 1,
-        }));
-        break;
-      case 'Bad':
-        this.setState(prevState => ({
-          bad: prevState.bad + 1,
-        }));
-        break;
-      default:
-        return;
-    }
+    this.setState(prevState => ({
+      [e.target.value]: prevState[e.target.value] + 1,
+    }));
   };
 
   countTotalFeedback() {
-    return this.state.good + this.state.neutral + this.state.bad;
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
   }
 
   countPositiveFeedbackPercentage() {
-    if (this.state.good === 0) {
+    const { good } = this.state;
+    if (good === 0) {
       return 0;
-    } else return (this.state.good / this.countTotalFeedback()) * 100;
+    } else return (good / this.countTotalFeedback()) * 100;
   }
 
   render() {
+    const stateKeys = Object.keys(this.state);
+    const { good, neutral, bad } = this.state;
     return (
       <Div>
         <Section title="Please leave feedback">
-          <FeedbackOptions onFeedback={this.handleFeedback} />
+          <FeedbackOptions
+            options={stateKeys}
+            onLeaveFeedback={this.handleFeedback}
+          />
         </Section>
         <Section title="Statistics">
           {this.countTotalFeedback() > 0 ? (
             <Stats
-              positive={this.state.good}
-              neutral={this.state.neutral}
-              negative={this.state.bad}
+              positive={good}
+              neutral={neutral}
+              negative={bad}
               total={this.countTotalFeedback()}
               percentOfPositives={this.countPositiveFeedbackPercentage()}
             />
