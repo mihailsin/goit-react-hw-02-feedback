@@ -24,16 +24,9 @@ class App extends React.Component {
   };
 
   countTotalFeedback() {
-    // const { good, neutral, bad } = this.state;
-    // return good + neutral + bad;
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
 
-    // code above works fine, but reduce method looks better:
-
-    const values = Object.values(this.state);
-    const total = values.reduce((acc, value) => {
-      return value + acc;
-    }, 0);
-    return total;
   }
 
   countPositiveFeedbackPercentage() {
